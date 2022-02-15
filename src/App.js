@@ -4,15 +4,7 @@ import axios from 'axios';
 import Recipe from './Recipe'
 
 const URL = 'https://api.spoonacular.com/recipes/'
-const API = 'd83f20d82a37492194b5e8b04fa722bb'
-
-/* https://api.spoonacular.com/recipes/random?apiKey=d83f20d82a37492194b5e8b04fa722bb 
-
-?apiKey=d83f20d82a37492194b5e8b04fa722bb
-*/
-
-
-
+const API = ''
 
 function App() {
   const [error, setError] = useState(null);
@@ -24,7 +16,7 @@ function App() {
 
 
   useEffect(() => {
-
+    
     const address = URL + 'complexSearch' + '?apiKey=' + API + '&includeIngredients=' + ingredient + '&addRecipeInformation=true'
     
     axios.get(address)
@@ -58,6 +50,7 @@ function App() {
       minutes={selectedItem.readyInMinutes}
       instructions = {selectedItem.sourceUrl}
       source = {selectedItem.sourceName}
+      
       close={close}
     />;
 
@@ -85,7 +78,6 @@ function App() {
             <h3>{item.title}</h3>
             <img src={item.image} />
             <p>Cooking time: {item.readyInMinutes} minutes</p>
-            
             
           </div>
         ))}
